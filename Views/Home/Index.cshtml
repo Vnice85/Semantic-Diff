@@ -1,0 +1,25 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    del {
+        color: red;
+        text-decoration: line-through;
+
+    }
+    ins {
+        color: blue;
+        text-decoration: underline;
+    }
+    del > * {
+        color: red;
+        text-decoration: line-through;
+
+    }
+    ins > * {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
+@Html.Raw(Model)
