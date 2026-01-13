@@ -59,10 +59,10 @@ namespace SemanticDiff.Helpers
 
                 if (diff.Type == DiffType.Delete)
                 {
-                    var targetNode = (newTokenIndex < allNewTokens.Count)
-                        ? allNewTokens[newTokenIndex].Node
-                        : (lastMeaningfulNode ?? allNewTokens.LastOrDefault()?.Node);
-
+                    // var targetNode = (newTokenIndex < allNewTokens.Count)
+                    //     ? allNewTokens[newTokenIndex].Node
+                    //     : (lastMeaningfulNode ?? allNewTokens.LastOrDefault()?.Node);
+                     var targetNode = lastMeaningfulNode ?? (newTokenIndex < allNewTokens.Count ? allNewTokens[newTokenIndex].Node : allNewTokens.LastOrDefault()?.Node);
                     if (targetNode != null)
                     {
                         var sb = GetBuilder(targetNode);
@@ -113,7 +113,7 @@ namespace SemanticDiff.Helpers
                 {
                     var token = allNewTokens[newTokenIndex];
                     GetBuilder(token.Node).Append(SafeHtmlEncode(token.Text));
-                    if (token.Node != null) lastMeaningfulNode = token.Node;
+                    // if (token.Node != null) lastMeaningfulNode = token.Node;
                     newTokenIndex++;
                 }
 
